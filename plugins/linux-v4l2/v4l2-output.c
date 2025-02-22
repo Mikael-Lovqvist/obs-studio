@@ -188,6 +188,18 @@ static int scanfilter(const struct dirent *entry)
 static bool virtualcam_start(void *data)
 {
 	struct virtualcam_data *vcam = (struct virtualcam_data *)data;
+
+	struct obs_data* vcam_settings_data = obs_output_get_settings(vcam->output);
+	const char* preselected_device_id = obs_data_get_string(vcam_settings_data, "device_id");
+
+	(void) preselected_device_id;
+
+	if (preselected_device_id) {
+		if (try_connect(vcam, preselected_device_id)) {
+			return true;
+		}
+	}
+
 	struct dirent **list;
 	bool success = false;
 	int n;

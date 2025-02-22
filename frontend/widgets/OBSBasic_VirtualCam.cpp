@@ -141,6 +141,9 @@ void OBSBasic::UpdateVirtualCamConfig(const VCamConfig &config)
 {
 	vcamConfig = config;
 
+	obs_data* outdata = obs_output_get_settings(outputHandler->virtualCam.Get());
+	obs_data_set_string(outdata, "device_id", config.loopbackDevice.c_str());
+
 	outputHandler->UpdateVirtualCamOutputSource();
 	log_vcam_changed(config, false);
 }

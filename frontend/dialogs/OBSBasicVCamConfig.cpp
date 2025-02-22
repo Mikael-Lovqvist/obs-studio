@@ -115,6 +115,7 @@ void OBSBasicVCamConfig::UpdateConfig()
 	}
 
 	config.type = type;
+	config.loopbackDevice = ui->loopbackDevice->text().toStdString();
 
 	if (requireRestart) {
 		emit AcceptedAndRestart(config);

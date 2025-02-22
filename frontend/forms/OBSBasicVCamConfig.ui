@@ -35,6 +35,16 @@
     <widget class="QComboBox" name="outputSelection"/>
    </item>
    <item>
+    <widget class="QLabel" name="loopbackDeviceLabel">
+     <property name="text">
+      <string>Basic.VCam.LoopbackDevice</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="loopbackDevice"/>
+   </item>
+   <item>
     <widget class="QLabel" name="warningLabel">
      <property name="visible">
       <bool>false</bool>
